@@ -1,0 +1,15 @@
+1.select a.hotel_no,a.name,a.city,b.roomno,b.type,b.price,c.guest_no,c.date__from,c.date_to from hotel a left outer join  room b on a.hotel_no=b.hotel_no left outer join booking c on a.hotel_no=c.hotel_no;
+2.select a.hotel_no,a.name,a.city,b.roomno,b.type,b.price,c.guest_no,c.date_from,c.date_to from hotel a left outer join  room b on a.hotel_no=b.hotel_no and where city='new york' left outer join booking c on a.hotel_no=c.hotel_no;
+3.select name,city from guest order by city;
+4.select * from room where type='n' orderby price;
+5.select count(hotel_no) from hotel as number_of_hotels;
+6.select city from guest groupby city ;
+7.select avg(price) from room;
+8.select a.name,a.hotel_no,b.room_no,b.type from hotel a inner join room b on a.hotel_no=b.hotel_no;
+9.select a.name,b.date_from,b.room_no from hotel a inner join booking b on a.hotel_no=b.hotel_no where a.city='newyork';
+10.select count(*) from booking where date_from like '%sept%';
+11.select a.name,a.city from guest a left outer join booking b on a.guest_no=b.guest_no  where a.city='new york' and b.date_from like '%aug%'; 
+
+13.select a.name a.city from hotel a inner join room b on a.hotel_no=b.hotel_no where price in (select max(price)from room); 
+
+15.select a.avg(price) from room a inner join booking b on a.hotel_no=b.hotel_no inner join guest c on a.guest_no=c.guest_no groupby city;
